@@ -1,1 +1,10 @@
 sistema-frete/target/*
+sistema-frete/target/classes/com/frete/dao/GenericDAO.class
+sistema-frete/target/classes/com/frete/model/CategoriaFrete.class
+sistema-frete/target/classes/com/frete/model/Cidade.class
+sistema-frete/target/classes/com/frete/model/Cliente.class
+sistema-frete/target/classes/com/frete/model/Frete.class
+sistema-frete/target/classes/com/frete/service/FreteService.class
+sistema-frete/target/classes/com/frete/test/TesteFrete.class
+sistema-frete/target/classes/org/example/App.class
+sistema-frete/target/test-classes/org/example/AppTest.class
