@@ -1,38 +1,43 @@
 package com.frete.service;
 
-import com.frete.dao.GenericDAO;
-import com.frete.model.Frete;
-import jakarta.persistence.EntityManager;
+import com.frete.dao.*;
+import com.frete.model.*;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Service
 public class FreteService {
-    private GenericDAO<Frete> freteDAO;
 
-    public FreteService(EntityManager entityManager) {
-        this.freteDAO = new GenericDAO<>(entityManager, Frete.class);
+    private final FreteDAO freteDAO;
+    private final DistanciaDAO distanciaDAO;
+    private final CategoriaFreteDAO categoriaFreteDAO;
+
+    public FreteService(FreteDAO freteDAO, DistanciaDAO distanciaDAO, CategoriaFreteDAO categoriaFreteDAO) {
+        this.freteDAO = freteDAO;
+        this.distanciaDAO = distanciaDAO;
+        this.categoriaFreteDAO = categoriaFreteDAO;
     }
 
-    public void registrarFrete(Frete frete) {
-        double valorFrete = calcularValorFrete(frete);
+    @Transactional
+    public Frete registrarFrete(Frete frete) {
+        // Calcula o valor do frete
+        Distancia distancia = distanciaDAO.findById(frete.getOrigem().getId());
+        CategoriaFrete categoriaFrete = categoriaFreteDAO.findById(frete.getCategoriaFrete().getId());
+
+        Double valorFrete = distancia.getQuilometragem() * 1.5 * (1 + categoriaFrete.getPercentual() / 100);
         frete.setValor(valorFrete);
-        freteDAO.salvar(frete);
+
+        // Salva o frete no banco de dados
+        return freteDAO.save(frete);
     }
 
-    private double calcularValorFrete(Frete frete) {
-        double valorPorKm = 5.0;
-        double percentual = frete.getCategoriaFrete().getPercentual();
-        return 100 * valorPorKm * (1 + percentual / 100);
-    }
-
-    public List<Frete> listarFretesPorCliente(Long clienteId) {
-        return freteDAO.listarTodos().stream()
-                .filter(f -> f.getCliente().getId().equals(clienteId))
-                .collect(Collectors.toList());
+    public List<Frete> listarFretesPorCliente(Cliente cliente) {
+        return freteDAO.buscarPorCliente(cliente);
     }
 
     public Frete buscarFretePorId(Long id) {
-        return freteDAO.buscarPorId(id);
+        return freteDAO.findById(id);
     }
 }

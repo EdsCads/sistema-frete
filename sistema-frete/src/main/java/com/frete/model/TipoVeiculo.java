@@ -4,20 +4,17 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-
-public class Cidade implements EntidadeBase {
+@Entity
+public class TipoVeiculo implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String nome;
-    private String estado;
+    private String descricao;
 
     @Override
     public Long getId() {
-        return id;
+        return id; // Corrigido para retornar o campo correto
     }
 }

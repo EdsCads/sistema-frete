@@ -4,17 +4,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+import java.time.LocalDate;
+
 @Getter
 @Setter
-
-public class Cidade implements EntidadeBase {
+@Entity
+public class Veiculo implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-    private String estado;
+    @Column(nullable = false)
+    private String placa;
+
+    @ManyToOne
+    private TipoVeiculo tipoVeiculo;
+
+    @ManyToOne
+    private Filial filial;
 
     @Override
     public Long getId() {

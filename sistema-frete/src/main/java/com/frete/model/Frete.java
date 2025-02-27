@@ -1,9 +1,14 @@
 package com.frete.model;
 
+import java.util.List;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-public class Frete {
+@Getter
+@Setter
+public class Frete implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,63 +17,27 @@ public class Frete {
     private Cliente cliente;
 
     @ManyToOne
-    private Cidade cidadeOrigem;
+    private Veiculo veiculo;
 
     @ManyToOne
-    private Cidade cidadeDestino;
+    private Cidade origem;
 
     @ManyToOne
-    private CategoriaFrete categoriaFrete;
+    private Cidade destino;
 
-    private double valor;
+    @ManyToOne
+    private Funcionario funcionario;
 
+    @ManyToOne
+    private CategoriaFrete categoriaFrete; // Adicionado campo categoriaFrete
+
+    @OneToMany(mappedBy = "frete")
+    private List<ItemTransporte> itens;
+
+    private Double valor;
+
+    @Override
     public Long getId() {
-        return id;
+        return this.id; // Corrigido para retornar o ID correto
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Cidade getCidadeOrigem() {
-        return cidadeOrigem;
-    }
-
-    public void setCidadeOrigem(Cidade cidadeOrigem) {
-        this.cidadeOrigem = cidadeOrigem;
-    }
-
-    public Cidade getCidadeDestino() {
-        return cidadeDestino;
-    }
-
-    public void setCidadeDestino(Cidade cidadeDestino) {
-        this.cidadeDestino = cidadeDestino;
-    }
-
-    public CategoriaFrete getCategoriaFrete() {
-        return categoriaFrete;
-    }
-
-    public void setCategoriaFrete(CategoriaFrete categoriaFrete) {
-        this.categoriaFrete = categoriaFrete;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    // Getters e Setters
 }

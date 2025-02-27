@@ -1,6 +1,9 @@
 package com.frete.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,16 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Cidade implements EntidadeBase {
+
+public class Funcionario implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private String estado;
 
     @Override
     public Long getId() {
-        return id;
+        return null;
     }
 }
