@@ -13,7 +13,5 @@ public class CategoriaFrete {
     private Long id;
 
     private String nome;
-    private Double percentual; // Certifique-se de que o campo existe
-
-    // Getters e Setters (gerados pelo Lombok)
+    private Double percentual;
 }

@@ -7,17 +7,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-public class Cidade implements EntidadeBase {
+public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private String estado;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
 }

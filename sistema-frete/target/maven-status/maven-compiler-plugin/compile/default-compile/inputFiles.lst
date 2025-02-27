@@ -1,3 +1,6 @@
+C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\config\DataSourceConfig.java
+C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\config\PersistenceConfig.java
+C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\config\TesteConexao.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\dao\CategoriaFreteDAO.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\dao\CidadeDAO.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\dao\ClienteDAO.java
@@ -27,5 +30,4 @@ C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\ser
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\test\BuscarFretePorIdTest.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\test\ListarFretesPorClienteTest.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\com\frete\test\RegistrarFreteTest.java
-C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\java\lang\Object.java
 C:\Users\HP\Downloads\sistema-freteNEW\sistema-frete\src\main\java\org\example\App.java

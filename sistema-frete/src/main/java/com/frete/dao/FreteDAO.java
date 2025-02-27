@@ -11,6 +11,9 @@ import java.util.List;
 @Repository
 public class FreteDAO extends GenericDAO<Frete> {
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     public FreteDAO() {
         super(Frete.class);
     }

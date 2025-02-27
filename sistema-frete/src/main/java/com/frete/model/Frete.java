@@ -1,6 +1,5 @@
 package com.frete.model;
 
-import java.util.List;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,16 +7,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Frete implements EntidadeBase {
+public class Frete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
-
-    @ManyToOne
-    private Veiculo veiculo;
 
     @ManyToOne
     private Cidade origem;
@@ -26,18 +23,7 @@ public class Frete implements EntidadeBase {
     private Cidade destino;
 
     @ManyToOne
-    private Funcionario funcionario;
-
-    @ManyToOne
-    private CategoriaFrete categoriaFrete; // Adicionado campo categoriaFrete
-
-    @OneToMany(mappedBy = "frete")
-    private List<ItemTransporte> itens;
+    private CategoriaFrete categoriaFrete;
 
     private Double valor;
-
-    @Override
-    public Long getId() {
-        return this.id; // Corrigido para retornar o ID correto
-    }
 }

@@ -18,7 +18,5 @@ public class Distancia {
     @ManyToOne
     private Cidade destino;
 
-    private Double quilometragem; // Certifique-se de que o campo existe
-
-    // Getters e Setters (gerados pelo Lombok)
+    private Double quilometragem;
 }

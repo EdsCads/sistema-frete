@@ -20,7 +20,7 @@ public class ClienteDAO extends GenericDAO<Cliente> {
 
     @Transactional
     public Cliente salvaOuAtualiza(Cliente cliente) {
-        return super.update(cliente);
+        return super.save(cliente);
     }
 
     @Transactional

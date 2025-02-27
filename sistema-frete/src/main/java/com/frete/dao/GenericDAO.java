@@ -1,7 +1,7 @@
 package com.frete.dao;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
